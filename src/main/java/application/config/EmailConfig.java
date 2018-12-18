@@ -22,7 +22,7 @@ public class EmailConfig {
         InputStream inputStream = null;
         try {
             Properties properties = new Properties();
-            String propertyFile = "application.properties";
+            String propertyFile = "config.properties";
 
             inputStream = getClass().getClassLoader().getResourceAsStream(propertyFile);
 

@@ -56,41 +56,4 @@ public class EmpresaController {
 		return new ResponseEntity<Empresa>(novaEmpresa, HttpStatus.OK);
     }	
 	
-	
-
-/*	@ApiOperation(value = "View List of Users", notes="These endpoint will return all users")
-	@GetMapping({ "/{id}" })
-	@ResponseStatus(HttpStatus.OK)
-	public Empresa getById(@PathVariable String id) {
-		return empresaService.getById(id);
-	}
-	
-	// POST
-	@ApiOperation(value = "View List of Users", notes="These endpoint will return all users")
-	@PostMapping
-	@ResponseStatus(HttpStatus.CREATED)
-	public Empresa createNew(@RequestBody Empresa emp) {
-		Empresa empresa = empresaService.addEmpresa(emp);
-		return empresa;
-	}
-
-	// PUT
-	@ApiOperation(value = "View List of Users", notes="These endpoint will return all users")
-	@PutMapping({ "/{id}" })
-	@ResponseStatus(HttpStatus.OK)
-	public Empresa update(@PathVariable String id, @RequestBody Empresa emp) {
-		Empresa empresa = empresaService.getById(id);
-		empresa.setName(emp.getName());
-		empresa.setEmail(emp.getEmail());
-		return empresaService.save(id, empresa);
-	}
-
-	// DELETE
-	@ApiOperation(value = "View List of Users", notes="These endpoint will return all users")
-	@DeleteMapping({ "/{id}" })
-	@ResponseStatus(HttpStatus.OK)
-	public void delete(@PathVariable String id) {
-		empresaService.deleteById(id);
-	}	
-*/	
 }

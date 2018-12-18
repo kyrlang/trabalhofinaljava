@@ -1,11 +1,8 @@
 package application.domain;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Getter;
@@ -21,7 +18,7 @@ public class Empresa {
 	private String name;
 	private String email;
 	
-    @DBRef
-    private List<Estoque> estoques = new ArrayList<Estoque>();	
+    /*@DBRef
+    private List<Estoque> estoques = new ArrayList<Estoque>();*/	
 	
 }

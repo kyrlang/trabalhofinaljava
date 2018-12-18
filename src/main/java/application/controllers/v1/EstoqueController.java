@@ -17,7 +17,6 @@ import application.domain.Estoque;
 import application.domain.Transacao;
 import application.services.EstoqueService;
 import application.services.TransacaoService;
-import application.services.TransacaoServiceImpl;
 import io.swagger.annotations.Api;
 
 @RestController
@@ -26,9 +25,11 @@ import io.swagger.annotations.Api;
 public class EstoqueController {
 
 	private EstoqueService estoqueService;
+	private TransacaoService transacaoService;
 
-    public EstoqueController(EstoqueService estoqueService) {
+    public EstoqueController(EstoqueService estoqueService, TransacaoService transacao) {
         this.estoqueService = estoqueService;
+        this.transacaoService = transacao;
     }
 	
 	// GET
@@ -63,8 +64,9 @@ public class EstoqueController {
 	
     @PostMapping("/compra")
     public ResponseEntity<Transacao> compraAcao(@RequestBody Transacao transacao) {
-    	TransacaoService transacaoService = new TransacaoServiceImpl();
-		Transacao novaTransacao = transacaoService.compra(transacao);
+    	//TransacaoServiceImpl trans = new TransacaoServiceImpl();
+    	//transacaoService.getById(transacao.getEstoque().getId());
+    	Transacao novaTransacao = transacaoService.compra(transacao);
 		
 		if (novaTransacao != null) {
 			estoqueService.delete("vendido", novaTransacao.getEstoque().getId());

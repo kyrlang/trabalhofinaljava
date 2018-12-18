@@ -8,9 +8,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import application.config.EmailConfig;
 import application.config.EmailSender;
-import application.domain.Empresa;
 import application.domain.Estoque;
 import application.domain.Transacao;
 import application.repositories.TransacaoRepository;
@@ -37,7 +35,9 @@ public class TransacaoServiceImpl implements TransacaoService {
 
 	@Override
 	public Transacao compra(Transacao transacao) {
-		Transacao transacaoEstoque = transacaoRepo.findByEstoque(transacao.getEstoque().getId());
+		UUID idEstoque = transacao.getEstoque().getId();
+
+		Transacao transacaoEstoque =  this.transacaoRepo.findByEstoque(idEstoque);
 		
 		if (transacaoEstoque == null) {
 			transacao.setId(UUID.randomUUID());

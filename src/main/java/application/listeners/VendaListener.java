@@ -15,7 +15,7 @@ public class VendaListener {
 
     @RabbitListener(queues = RabbitMQConfig.VENDA_FILA)
     public void processMessage(Estoque message) {
-        logger.info("Message Received - BUY");
+        logger.info("Message Received - SELL");
         logger.info("EnterpriseId:" + message.getId());
     }		
 	
